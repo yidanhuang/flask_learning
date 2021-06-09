@@ -1,0 +1,24 @@
+{%extends 'base.html' %}\
+<!--#表示继承base.html里面html相关的格式-->
+{%block head%}
+<title>posts</title>
+<!--#网址标题为变为home-->
+{%endblock %}
+
+{%block body%}
+<h1>All posts</h1>
+
+    {%for post in posts %} <!--posts 来自于main.py里面的字典posts-->
+        <h2>{{post.title }}</h2>
+        <h3>{{post.author}}</h3>
+        {% if post.author%}
+            <h3> by:{{post.author}}</h3>
+        {% else %}
+            <h3>by:N/A</h3>
+        {% endif %}
+        <p>{{post.content}}</p>
+
+
+    {%endfor%}
+
+{%endblock %}
